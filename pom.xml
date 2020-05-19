@@ -93,7 +93,7 @@
         <repository>
             <id>github</id>
             <name>GitHub vibe-communications-uk-ltd Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/vibe-communications-uk-ltd/jambones-sdk</url>
+            <url>https://maven.pkg.github.com/ajukes/jambones-java-sdk</url>
         </repository>
     </distributionManagement>
 
