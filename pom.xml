@@ -4,7 +4,7 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>Jambones Java SDK</name>
     <description>Interface with the Jambones Voice Platorm</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
@@ -49,15 +49,10 @@
             <version>3.8.1</version>
         </dependency>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.0.Final</version>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.2.0.Final</version>
-            <scope>runtime</scope>
+            <version>6.0.16.Final</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -85,7 +80,7 @@
         <connection>scm:git:git://github.com/ajukes/jambones-java-sdk.git</connection>
         <developerConnection>scm:git:https://github.com/ajukes/jambones-java-sdk.git</developerConnection>
         <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
-      <tag>jambones-sdk-1.0.0</tag>
+      <tag>jambones-sdk-1.0.3</tag>
     </scm>
 
     <build>

@@ -7,6 +7,7 @@ import net.vibecoms.jambones.exceptions.JambonesConstraintViolation;
 import net.vibecoms.jambones.services.CallService;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -23,7 +24,7 @@ public final class CallControlClient {
 
     @NotNull
     private final CloseableHttpClient httpClient;
-    @NotEmpty
+    @NotNull
     private final JambonesAPIKey apiKey;
     @NotEmpty
     private final String accountSid;
@@ -70,16 +71,22 @@ public final class CallControlClient {
         private final Validator validator;
 
         private Builder() {
-            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-            this.validator = factory.getValidator();
+            this.validator =  Validation.byDefaultProvider()
+                    .configure()
+                    .messageInterpolator(new ParameterMessageInterpolator())
+                    .buildValidatorFactory()
+                    .getValidator();
         }
 
         private Builder(String version, CloseableHttpClient httpClient) {
             this.httpClient = httpClient;
             this.version = version;
 
-            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-            this.validator = factory.getValidator();
+            this.validator =  Validation.byDefaultProvider()
+                    .configure()
+                    .messageInterpolator(new ParameterMessageInterpolator())
+                    .buildValidatorFactory()
+                    .getValidator();
         }
 
 

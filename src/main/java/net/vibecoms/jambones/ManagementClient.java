@@ -8,6 +8,7 @@ import net.vibecoms.jambones.exceptions.JambonesConstraintViolation;
 import net.vibecoms.jambones.services.*;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -24,7 +25,7 @@ public final class ManagementClient {
 
     @NotNull
     private final CloseableHttpClient httpClient;
-    @NotEmpty
+//    @NotNull
     private JambonesAdminKey adminKey;
     @NotNull
     private final URL endpoint;
@@ -34,12 +35,15 @@ public final class ManagementClient {
     private final ObjectMapper objectMapper;
 
 
-    protected ManagementClient(CloseableHttpClient httpClient, JambonesAdminKey adminKey, URL endpoint, String version) {
+    protected ManagementClient(CloseableHttpClient httpClient, JambonesAdminKey adminKey, URL endpoint, String version, String username, String password) {
         this.httpClient = httpClient;
         this.adminKey = adminKey;
         this.endpoint = endpoint;
         this.version = version;
         this.objectMapper = new ObjectMapper();
+
+        if (username != null && password != null)
+            login(username, password);
     }
 
     public AccountService account() {
@@ -92,6 +96,8 @@ public final class ManagementClient {
         private JambonesAdminKey adminKey;
         private URL endpoint;
         private String version;
+        private String username;
+        private String password;
 
         private final Validator validator;
 
@@ -103,9 +109,11 @@ public final class ManagementClient {
         private Builder(String version, CloseableHttpClient httpClient) {
             this.httpClient = httpClient;
             this.version = version;
-
-            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-            this.validator = factory.getValidator();
+            this.validator = Validation.byDefaultProvider()
+                    .configure()
+                    .messageInterpolator(new ParameterMessageInterpolator())
+                    .buildValidatorFactory()
+                    .getValidator();
         }
 
 
@@ -125,6 +133,12 @@ public final class ManagementClient {
             return this;
         }
 
+        public Builder login(String username, String password) {
+            this.username = username;
+            this.password = password;
+            return this;
+        }
+
 
         public Builder endpoint(String endpoint) {
             try {
@@ -136,10 +150,16 @@ public final class ManagementClient {
         }
 
         public ManagementClient build() {
-            ManagementClient managementClient = new ManagementClient(httpClient, adminKey, endpoint, version);
+            ManagementClient managementClient = new ManagementClient(httpClient, adminKey, endpoint, version, username, password);
             Set<ConstraintViolation<ManagementClient>> constraintViolations = validator.validate(managementClient);
             if (constraintViolations.size() > 0) {
                 throw new JambonesConstraintViolation(constraintViolations);
+            }
+            if (username == null && adminKey == null) {
+                throw new AssertionError("Must be Login or AdminKey");
+            }
+            if (username != null && adminKey != null) {
+                throw new AssertionError("Login and AdminKey are mutually exclusive");
             }
             return managementClient;
         }
