@@ -4,7 +4,7 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>Jambones Java SDK</name>
     <description>Interface with the Jambones Voice Platorm</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
@@ -86,7 +86,7 @@
         <connection>scm:git:git://github.com/ajukes/jambones-java-sdk.git</connection>
         <developerConnection>scm:git:https://github.com/ajukes/jambones-java-sdk.git</developerConnection>
         <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
-      <tag>jambones-sdk-1.0.2</tag>
+      <tag>jambones-sdk-1.0.0</tag>
     </scm>
 
     <build>
