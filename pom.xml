@@ -4,13 +4,34 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Jambones Java SDK</name>
+    <description>Interface with the Jambones Voice Platorm</description>
+    <url>http://github.com/ajukes/jambones-java-sdk</url>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Antony Jukes</name>
+            <email>ajukes@vibecoms.co.uk</email>
+            <organization>Vibe Ltd</organization>
+            <organizationUrl>http://www.vibecoms.co.uk</organizationUrl>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -66,7 +87,7 @@
         <developerConnection>scm:git:https://github.com/ajukes/jambones-java-sdk.git</developerConnection>
         <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
       <tag>jambones-sdk-1.0.0</tag>
-  </scm>
+    </scm>
 
     <build>
         <plugins>
