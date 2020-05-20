@@ -64,8 +64,6 @@ public class JambonesRestClient<T, U, V> {
 
     public List<T> get() throws IOException {
 
-        System.out.println(url);
-
         HttpGet httpGet = new HttpGet(url);
         httpGet.setHeader(HttpHeaders.ACCEPT, APPLICATION_JSON);
         if(adminKey != null)
