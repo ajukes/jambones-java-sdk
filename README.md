@@ -4,6 +4,18 @@ jambones-java-sdk
 SDK for connecting to the Jambones Platform. 
 
 ### Spring Boot Quick Start
+
+#### Pom.xml
+
+Add Jambones SDK
+    
+     <dependency>
+        <groupId>net.vibecoms</groupId>
+        <artifactId>jambones-sdk</artifactId>
+        <version>1.0.4</version>
+     </dependency>
+
+    
 #### application.properties
 
     jambones.serverUrl="http://acme.com:3000"
