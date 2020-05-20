@@ -63,7 +63,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/ajukes/jambones-java-sdk.git</connection>
-        <developerConnection>scm:git:git://github.com:ajukes/jambones-java-sdk.git</developerConnection>
+        <developerConnection>scm:git:git://github.com:/jukes/jambones-java-sdk.git</developerConnection>
         <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
       <tag>jambones-sdk-1.0.0</tag>
   </scm>
