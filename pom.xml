@@ -4,7 +4,7 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -63,7 +63,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/ajukes/jambones-java-sdk.git</connection>
-        <developerConnection>scm:git:ssh://github.com:ajukes/jambones-java-sdk.git</developerConnection>
+        <developerConnection>scm:git:git://github.com:ajukes/jambones-java-sdk.git</developerConnection>
         <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
       <tag>jambones-sdk-1.0.0</tag>
   </scm>
