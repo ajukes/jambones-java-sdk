@@ -7,32 +7,51 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
-@Getter
 @Builder
 @ToString
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SipGatewayPostRequest {
 
-    @JsonProperty("voip_carrier_sid")
     private String voipCarrierSid;
+    private String ipv4;
+    private Integer port;
+    private Boolean isActive;
+    private Boolean inbound;
+    private Boolean outbound;
+
+    @JsonProperty("voip_carrier_sid")
+    public String getVoipCarrierSid() {
+        return voipCarrierSid;
+    }
 
     @JsonProperty("ipv4")
-    private String ipv4;
+    public String getIpv4() {
+        return ipv4;
+    }
 
     @JsonProperty("port")
-    private int port;
+    public int getPort() {
+        return port;
+    }
 
     @JsonProperty("is_active")
-    private boolean isActive;
+    public boolean isActive() {
+        return isActive;
+    }
 
     @JsonProperty("inbound")
-    private boolean inbound;
+    public boolean isInbound() {
+        return inbound;
+    }
 
     @JsonProperty("outbound")
-    private boolean outbound;
+    public boolean isOutbound() {
+        return outbound;
+    }
 
-    private SipGatewayPostRequest(){}
+    private SipGatewayPostRequest() {
+    }
 
 
 }
