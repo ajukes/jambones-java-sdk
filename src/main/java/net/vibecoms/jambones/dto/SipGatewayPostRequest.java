@@ -1,5 +1,6 @@
 package net.vibecoms.jambones.dto;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -20,32 +21,32 @@ public class SipGatewayPostRequest {
     private Boolean inbound;
     private Boolean outbound;
 
-    @JsonProperty("voip_carrier_sid")
+    @JsonGetter("voip_carrier_sid")
     public String getVoipCarrierSid() {
         return voipCarrierSid;
     }
 
-    @JsonProperty("ipv4")
+    @JsonGetter("ipv4")
     public String getIpv4() {
         return ipv4;
     }
 
-    @JsonProperty("port")
+    @JsonGetter("port")
     public int getPort() {
         return port;
     }
 
-    @JsonProperty("is_active")
+    @JsonGetter("is_active")
     public boolean isActive() {
         return isActive;
     }
 
-    @JsonProperty("inbound")
+    @JsonGetter("inbound")
     public boolean isInbound() {
         return inbound;
     }
 
-    @JsonProperty("outbound")
+    @JsonGetter("outbound")
     public boolean isOutbound() {
         return outbound;
     }
