@@ -4,9 +4,9 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
+    <version>1.0.10-SNAPSHOT</version>
     <name>Jambones Java SDK</name>
-    <description>Interface with the Jambones Voice Platorm</description>
+    <description>Interface with the Jambones Voice Platform</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
 
     <properties>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -88,87 +88,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <scm>
-      <connection>scm:git:git://github.com/ajukes/jambones-java-sdk.git</connection>
-      <developerConnection>scm:git:https://github.com/ajukes/jambones-java-sdk.git</developerConnection>
-      <url>http://github.com/ajukes/jambones-java-sdk/tree/master</url>
-      <tag>jambones-sdk-1.0.4</tag>
-    </scm>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <source>8</source>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
-            </plugin>
-        </plugins>
-    </build>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
 </project>

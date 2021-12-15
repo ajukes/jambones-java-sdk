@@ -13,6 +13,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
@@ -23,8 +24,10 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class JambonesRestClient<T, U, V> {
@@ -62,9 +65,16 @@ public class JambonesRestClient<T, U, V> {
 
     }
 
-    public List<T> get() throws IOException {
+    public List<T> get(Map<String, String> params) throws IOException, URISyntaxException {
 
-        HttpGet httpGet = new HttpGet(url);
+        URIBuilder builder = new URIBuilder(url);
+
+        if(params != null) {
+            params.forEach(builder::setParameter);
+        }
+
+        HttpGet httpGet = new HttpGet(builder.build());
+
         httpGet.setHeader(HttpHeaders.ACCEPT, APPLICATION_JSON);
         if(adminKey != null)
             httpGet.setHeader(HttpHeaders.AUTHORIZATION, getBearer());

@@ -10,10 +10,9 @@ import net.vibecoms.jambones.utils.URLConstants;
 import org.apache.http.impl.client.CloseableHttpClient;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class SipGatewayService {
 
@@ -32,10 +31,14 @@ public class SipGatewayService {
         return INSTANCE;
     }
 
-    public List<SipGateway> list() {
+    public List<SipGateway> list(String voipCarrierSid) {
         try {
-            return restClient.get();
-        } catch (IOException e) {
+            Map<String, String> params = new HashMap<>();
+            if (voipCarrierSid != null) {
+                params.put("voip_carrier_sid", voipCarrierSid);
+            }
+            return restClient.get(params);
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
         return Collections.emptyList();
