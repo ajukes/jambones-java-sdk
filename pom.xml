@@ -6,7 +6,7 @@
     <artifactId>jambones-sdk</artifactId>
     <version>1.0.10-SNAPSHOT</version>
     <name>Jambones Java SDK</name>
-    <description>Interface with the Jambones Voice Platform</description>
+    <description>Interface with the Jambones CPaaS</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
 
     <properties>
