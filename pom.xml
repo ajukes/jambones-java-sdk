@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.vibecoms</groupId>
+    <groupId>io.callable</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.11-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <name>Jambones Java SDK</name>
     <description>Interface with the Jambones CPaaS</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
@@ -26,8 +26,8 @@
         <developer>
             <name>Antony Jukes</name>
             <email>ajukes@vibecoms.co.uk</email>
-            <organization>Vibe Ltd</organization>
-            <organizationUrl>http://www.vibecoms.co.uk</organizationUrl>
+            <organization>Callable Ltd</organization>
+            <organizationUrl>https://www.callable.io</organizationUrl>
         </developer>
     </developers>
 
