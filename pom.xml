@@ -4,7 +4,7 @@
 
     <groupId>net.vibecoms</groupId>
     <artifactId>jambones-sdk</artifactId>
-    <version>1.0.10-SNAPSHOT</version>
+    <version>1.0.11-SNAPSHOT</version>
     <name>Jambones Java SDK</name>
     <description>Interface with the Jambones CPaaS</description>
     <url>http://github.com/ajukes/jambones-java-sdk</url>
@@ -89,4 +89,11 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/vibe-communications/java-libs</url>
+        </repository>
+    </distributionManagement>
 </project>
