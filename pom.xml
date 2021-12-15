@@ -96,4 +96,6 @@
             <url>https://maven.pkg.github.com/ajukes/jambones-java-sdk</url>
         </repository>
     </distributionManagement>
+
+
 </project>
