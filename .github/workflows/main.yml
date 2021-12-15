@@ -2,7 +2,8 @@ name: Build
 
 on:
   push:
-    types: [created]
+    branches:
+      - master
 
 jobs:
   build:
